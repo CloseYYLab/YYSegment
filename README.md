@@ -1,6 +1,4 @@
 # Pytorch Medical Segmentation
-<i>英文版请戳：<a href='https://github.com/MontaEllis/Pytorch-Medical-Segmentation/blob/master/README.md'>这里！</a></i><br />
-
 
 ## 环境要求
 * pytorch1.7
