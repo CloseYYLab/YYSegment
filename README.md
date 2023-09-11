@@ -1,35 +1,22 @@
 # Pytorch Medical Segmentation
-<i>Read Chinese Introduction：<a href='https://github.com/MontaEllis/Pytorch-Medical-Segmentation/blob/master/README-zh.md'>Here！</a></i><br />
+<i>英文版请戳：<a href='https://github.com/MontaEllis/Pytorch-Medical-Segmentation/blob/master/README.md'>这里！</a></i><br />
 
-## Notes
-We are planning a major update to the code in the near future, so if you have any suggestions, please feel free to email [me](elliszkn@163.com) or mention them in the issue.
 
-## Recent Updates
-* 2021.1.8 The train and test codes are released.
-* 2021.2.6 A bug in dice was fixed with the help of [Shanshan Li](https://github.com/ssli23).
-* 2021.2.24 A video tutorial was released(https://www.bilibili.com/video/BV1gp4y1H7kq/).
-* 2021.5.16 A bug in Unet3D implement was fixed.
-* 2021.5.16 The metric code is released.
-* 2021.6.24 All parameters can be adjusted in hparam.py.
-* 2021.7.7 Now you can refer medical classification in [Pytorch-Medical-Classification](https://github.com/MontaEllis/Pytorch-Medical-Classification)
-* 2022.5.15 Now you can refer semi-supervised learning on medical segmentation in [SSL-For-Medical-Segmentation](https://github.com/MontaEllis/SSL-For-Medical-Segmentation)
-* 2022.5.17 We update the training and inference code and fix some bugs.
-
-## Requirements
+## 环境要求
 * pytorch1.7
 * torchio<=0.18.20
 * python>=3.6
 
-## Notice
-* You can modify **hparam.py** to determine whether 2D or 3D segmentation and whether multicategorization is possible.
-* We provide algorithms for almost all 2D and 3D segmentation.
-* This repository is compatible with almost all medical data formats(e.g. nii.gz, nii, mhd, nrrd, ...), by modifying **fold_arch** in **hparam.py** of the config. **I would like you to convert both the source and label images to the same type before using them, where labels are marked with 1, not 255.**
-* If you want to use a **multi-category** program, please modify the corresponding codes by yourself. I cannot identify your specific categories.
-* Whether in 2D or 3D, this project is processed using **patch**. Therefore, images do not have to be strictly the same size. In 2D, however, you should set the patch large enough.
+## 通知
+* 您可以修改**hparam.py**文件来确定是2D分割还是3D分割以及是否可以进行多分类。
+* 我们几乎提供了所有的2D和3D分割的算法。
+* 本项目兼容几乎所有的医学数据格式(例如 nii.gz, nii, mhd, nrrd, ...)，修改**hparam.py**的**fold_arch**即可。**我希望您能在使用前把source和label图片都转成相同的类型，其中，label用1标志，不是255。**
+* 如果您想进行**多分类**分割，请自行修改对应代码。我不能确定您的具体分类数。
+* 不论是2D或是3D，本项目均采用**patch**的方式。故图片大小不必严格保持一致。在2D中，您应该把patch设置的足够大。
 
-## Prepare Your Dataset
-### Example1
-if your source dataset is :
+## 准备您的数据
+### 例1
+如果您的source文件夹如下排列 :
 ```
 source_dataset
 ├── source_1.mhd
@@ -43,7 +30,7 @@ source_dataset
 └── ...
 ```
 
-and your label dataset is :
+同时您的label文件夹如下排列 :
 ```
 label_dataset
 ├── label_1.mhd
@@ -57,10 +44,10 @@ label_dataset
 └── ...
 ```
 
-then your should modify **fold_arch** as **\*.mhd**, **source_train_dir** as **source_dataset** and **label_train_dir** as **label_dataset** in **hparam.py**
+您应该修改 **fold_arch** 为 **\*.mhd**, **source_train_dir** 为 **source_dataset** 并修改 **label_train_dir** 为 **label_dataset** in **hparam.py**
 
 ### Example2
-if your source dataset is :
+如果您的source文件夹如下排列 :
 ```
 source_dataset
 ├── 1
@@ -78,7 +65,7 @@ source_dataset
 └── ...
 ```
 
-and your label dataset is :
+同时您的label文件夹如下排列 :
 ```
 label_dataset
 ├── 1
@@ -96,34 +83,36 @@ label_dataset
 └── ...
 ```
 
-then your should modify **fold_arch** as **\*/\*.mhd**, **source_train_dir** as **source_dataset** and **label_train_dir** as **label_dataset** in **hparam.py**
+您应该修改 **fold_arch** 为 **\*/\*.mhd**, **source_train_dir** 为 **source_dataset** 并修改 **label_train_dir** 为 **label_dataset** in **hparam.py**
 
 
-## Training
-* without pretrained-model
+## 训练
+* 不使用预训练模型
 ```
 set hparam.train_or_test to 'train'
 python main.py
 ```
-* with pretrained-model
+* 使用预训练模型
 ```
 set hparam.train_or_test to 'train'
 python main.py -k True
 ```
   
 ## Inference
-* testing
+* 测试
 ```
 set hparam.train_or_test to 'test'
 python main.py
 ```
 
-## Examples
+## 实例
 ![](https://ellis.oss-cn-beijing.aliyuncs.com/img/20210108185333.png)
 ![](https://ellis.oss-cn-beijing.aliyuncs.com/img/2021-02-06%2022-40-07%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
 
-## Tutorials
+
+## 教程
 * https://www.bilibili.com/video/BV1gp4y1H7kq/
+
 
 ## Done
 ### Network
@@ -147,22 +136,14 @@ python main.py
 - [x] unetr (copy from https://github.com/tamasino52/UNETR)
 
 ### Metric
-- [x] metrics.py to evaluate your results
+- [x] metrics.py 来评估您的结果
 
 ## TODO
 - [ ] dataset
 - [ ] benchmark
 - [ ] nnunet
 
-## By The Way
-This project is not perfect and there are still many problems. If you are using this project and would like to give the author some feedbacks, you can send [Me](elliszkn@163.com) an email.
 
-## Acknowledgements
-This repository is an unoffical PyTorch implementation of Medical segmentation in 3D and 2D and highly based on [MedicalZooPytorch](https://github.com/black0017/MedicalZooPytorch) and [torchio](https://github.com/fepegar/torchio). Thank you for the above repo. The project is done with the supervisions of [Prof. Ruoxiu Xiao](http://enscce.ustb.edu.cn/Teach/TeacherList/2020-10-16/114.html) and [Dr. Cheng Chen](b20170310@xs.ustb.edu.cn). Thank you to [Youming Zhang](zhangym0820@csu.edu.cn), [Daiheng Gao](https://github.com/tomguluson92), [Jie Zhang](jpeter.zhang@connect.polyu.hk), [Xing Tao](kakatao@foxmail.com), [Weili Jiang](1379252229@qq.com) and [Shanshan Li](https://github.com/ssli23) for all the help I received.
+## 致谢
+这个项目是一个非官方PyTorch实现的3D和2D医学分割，高度依赖于[MedicalZooPytorch](https://github.com/black0017/MedicalZooPytorch)和[torchio](https://github.com/fepegar/torchio)。感谢上述项目。本项目在[Prof. Ruoxiu Xiao](http://enscce.ustb.edu.cn/Teach/TeacherList/2020-10-16/114.html) 和 [Dr. Cheng Chen](b20170310@xs.ustb.edu.cn)的指导下完成。感谢[Youming Zhang](zhangym0820@csu.edu.cn), [Daiheng Gao](https://github.com/tomguluson92), [Jie Zhang](jpeter.zhang@connect.polyu.hk), [Xing Tao](kakatao@foxmail.com), [Weili Jiang](1379252229@qq.com)和[Shanshan Li](https://github.com/ssli23) 对我的帮助。
 
-## Related works
-If this code is helpful for you, you can cite these for us. Thank you.
-```
-[1] Chen C, Zhou K. An Effective Deep Neural Network for Lung Lesions Segmentation from COVID-19 CT Images[J]. IEEE Transactions on Industrial Informatics, 2021.
-[2] Chen C, Zhang T, et al. Pathological lung segmentation in chest CT images based on improved random walker[J]. Computer Methods and Programs in Biomedicine, 2021, 200: 105864.
-```
