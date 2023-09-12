@@ -112,11 +112,6 @@ python main.py
 ![](https://ellis.oss-cn-beijing.aliyuncs.com/img/20210108185333.png)
 ![](https://ellis.oss-cn-beijing.aliyuncs.com/img/2021-02-06%2022-40-07%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
 
-
-## 教程
-* https://www.bilibili.com/video/BV1gp4y1H7kq/
-
-
 ## Done
 ### Network
 * 2D
