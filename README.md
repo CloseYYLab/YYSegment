@@ -4,10 +4,15 @@
 * pytorch1.7
 * torchio<=0.18.20
 * python>=3.6
+  
+## 数据集
+3D数据集 CT数据集  链接：https://pan.baidu.com/s/1aWuvtyg8pybI8RHbTnPgUw  提取码：4oo6 
+2D数据集 牙齿数据集  链接：https://pan.baidu.com/s/1xHWP70W5PSL1ZSc_VGnZBw  提取码：fcjg 
+这两个数据集都不大，供大家测试联系
 
 ## 通知
 * 您可以修改**hparam.py**文件来确定是2D分割还是3D分割以及是否可以进行多分类。
-* 我们几乎提供了所有的2D和3D分割的算法。
+* 我们几乎提供了所有的2D和3D分割的算法。.
 * 本项目兼容几乎所有的医学数据格式(例如 nii.gz, nii, mhd, nrrd, ...)，修改**hparam.py**的**fold_arch**即可。**我希望您能在使用前把source和label图片都转成相同的类型，其中，label用1标志，不是255。**
 * 如果您想进行**多分类**分割，请自行修改对应代码。我不能确定您的具体分类数。
 * 不论是2D或是3D，本项目均采用**patch**的方式。故图片大小不必严格保持一致。在2D中，您应该把patch设置的足够大。
